@@ -1,7 +1,9 @@
 import java.util.concurrent.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TimeOutException {
+        System.out.println("Solution 1: ");
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Future<String> future = executor.submit(new Task());
 
@@ -17,7 +19,17 @@ public class Main {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
         executor.shutdownNow();
+
+        System.out.println("Solution 2: ");
+        CustomThread t = new CustomThread(5000);
+        try {
+            TimeoutController.execute(t, 3000);
+        }catch (TimeOutException e){
+
+        }
+
+
+
     }
 }
