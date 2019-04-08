@@ -1,0 +1,8 @@
+﻿Bài 1: 
+Tưởng tượng máy tính của tương lai:
+1 kit máy tính sẽ gồm:
++ Kính thực tế ảo (mixed reality/ augmented reality)
++ Bàn phím tương tác (vật lý hoặc ảo)
++ các thiết bị phụ trợ đi kèm (optional)
+
+người dùng sẽ tương tác trực tiếp trên môi trường thực tế ảo, trực quan và flexible, hình dạng giao diện/ tương tác cũng đều không cố định. Các tương tác vật lý bắt buộc / trợ năng đều thông qua bàn phím rời 

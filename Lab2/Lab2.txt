@@ -1,0 +1,25 @@
+﻿Bài 2: 
+Giải pháp 1:
++ Nếu sử dụng hệ màu RGB: (r,g,b) => (r’,g’,b’) (có điều kiện heuristic để phân biệt màu đỏ)
+	Giải pháp đang cài đặt file solution1.py : r’= 0, b’ = r’, g’ = g 
++ Tuy nhiên, heuristic để “phân biệt được màu đỏ” rất không rõ ràng
+
+
+Giải pháp 2: 
+chuyển sang hệ màu HSV – đã cài đặt trong file solution2.py
+
+Các bước cụ thể tiến hành
+1/ Phân biệt được màu đỏ dựa trên ngưỡng:
+(0,50,20) ~ (5,255,255) và (175,50,20)~(180,255,255)
+2/ Lọc được các phần có “màu đỏ”
+ 
+3/ Đổi màu: giảm kênh H (hue) xuống 1 khoảng ~(130-115)/360 – Scale trong code: -60 trên thang 179 
+ 
+4/ Chuyển lại về file RGB để ghi output
+
+Tham khảo: 
+https://stackoverflow.com/questions/51229126/how-to-find-the-red-color-regions-using-opencv
+https://stackoverflow.com/questions/10948589/choosing-the-correct-upper-and-lower-hsv-boundaries-for-color-detection-withcv/48367205#48367205
+https://stackoverflow.com/questions/24852345/hsv-to-rgb-color-conversion
+https://stackoverflow.com/questions/26912869/color-levels-in-opencv
+https://docs.opencv.org/3.2.0/df/d9d/tutorial_py_colorspaces.html

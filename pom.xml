@@ -11,6 +11,8 @@
     <modules>
         <module>Lab12</module>
         <module>DiningPhysolophers</module>
+        <module>NetworkingSocket</module>
+        <module>Lab7</module>
     </modules>
 
 

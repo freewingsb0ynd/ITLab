@@ -1,0 +1,9 @@
+﻿So sánh kích thước ảnh của các loại file
+Loại file ảnh	JPG	PNG				Bitmap
+				16color- bitmap		256color- bitmap	24bit-color bitmap
+100x100		7.74KB	30.8KB	5.19KB			10.8KB			29.4 KB
+10000x10000	6.53MB	145MB	47.6MB			95.3MB			286MB
+
+Với ảnh nhỏ 100x100 pixel: kích thước đối với loại PNG và BMP 24bit không khác biệt nhau nhiều
+Với ảnh lớn 10000x10000 pixel: kích thước file PNG nhỏ hơn nhiều (~0.5 lần) kích thước file BMP 24bit 
+Khi nén xuống chế độ 16 hoặc 256 color của bitmap thì chất lượng ảnh giảm, đồng thời kích thước cũng giảm theo

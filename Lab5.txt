@@ -1,0 +1,14 @@
+﻿Bài 5: Exceptions
+Java có chia 2 loại exception chính là:
+-	Checked Exception: Exception ngay tại thời điểm compiling, 1 số IDE có thể giúp nhận ran gay khi đang biên dịch chương trình, 
+Ví dụ kinh điển nhất cho loại này là NullPointerException rất dễ gặp phải khi khai báo một đối tượng object (không nguyên thủy), chưa khởi tạo bằng từ khóa new mà đã dùng để gọi các methods trong class đó, IDE lập tức báo lỗi cú pháp khi biên dịch. Lỗi này dễ dàng khắc phục bằng cách khởi tạo object đó trước khi gọi methods qua constructor của class của object đó.
+-	Unchecked Exception: Việc xác định exception loại này có xảy ra hay không chỉ có thể thực hiện tại thời điểm runtime, IDE không thể giúp xác định lỗi loại này.
+Có nhiều ví dụ cho exception loại này, ở đây em xin đề cập đến một exception khá quen thuộc khi lập trình android bằng Java là ActivityNotFoundException
+Lỗi này xảy ra khi một class thuộc một trong các kiểu: Activity, Service, BroadcastReceiver hoặc ContentProvider không được khai báo trong file manifest là AndroidManifest.xml
+Ví dụ cụ thể khi tạo 1 class Activity mới là class con của Activity, tự @Overide phương thức onCreate(Bundle savedInstanceState) và không thêm vào manifest. Tại class khác nếu gọi qua activity này bằng hàm startActivity(Intent intent), trong đó intent là đối tượng của class activity vừa tạo. Khi chạy chế độ Debug thì trên log sẽ hiện ActivityNotFoundException
+Cách khắc phục: khi tạo một class thuộc một trong các loại nói trên thì phải khai báo thêm vào file manifest của android, thừa còn hơn thiếu.
+
+Tham khảo: 
+-	https://freetuts.net/ref/hay-liet-ke-su-khac-nhau-co-ban-giua-checked-exception-va-unchecked-exception-trong-java-324.html
+-	https://freetuts.net/tong-quan-ve-exception-trong-java-1187.html
+-	https://yellowcodebooks.com/2018/01/25/java-bai-37-exception-tap-1-lam-quen-voi-exception/

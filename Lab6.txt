@@ -1,0 +1,3 @@
+﻿Bài 6: Static Variables
+Biến static, hay gọi là biến tĩnh trong java, là một biến được chung, được các instances của class đó chia sẻ nội dung. Biến static có thể được sử dụng để tham chiếu một thuộc tính chung của tất cả đối tượng, có thể hiểu là biến static thuộc về class chứ không thuộc về đối tượng instance của class.
+Biến static chỉ lấy bộ nhớ một lần trong vùng nhớ cho Class ở thời gian tải Class vào vùng nhớ heap lần đầu (lúc compile chương trình). Khi tạo instance thứ 2 của class đó, trong vùng nhớ stack lưu lại reference đến vùng nhớ của Class đó như bình thường. Nếu khi này biến static của class được thay đổi, thì vùng nhớ lưu biến trong class ở heap sẽ thay đổi. 
