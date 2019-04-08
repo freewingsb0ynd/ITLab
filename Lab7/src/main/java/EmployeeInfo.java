@@ -1,5 +1,3 @@
-package Generics;
-
 public class EmployeeInfo<K,V,I> extends Dictionary<K,V> {
     private I info;
 

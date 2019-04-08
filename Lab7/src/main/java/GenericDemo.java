@@ -1,4 +1,3 @@
-
 public class GenericDemo {
     public static void main(String[] args) throws Exception {
         Dictionary<String, Integer> entry = new Dictionary<String, Integer>("hoang", 947852);
