@@ -29,7 +29,7 @@ public class ThreadServer extends Thread{
 
     }
     public void run(){
-        // xữ lý đăng nhập
+        // login request
         String msg=null;
         while(run){
             nickName=getMSG();

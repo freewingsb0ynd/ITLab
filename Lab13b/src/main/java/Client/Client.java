@@ -15,8 +15,8 @@ import javax.swing.*;
 
 public class Client extends JFrame implements ActionListener{
     private JButton send,clear,exit,login,logout,Connect;
-    private JPanel p_login,p_chat,p_connect, Info;
-    private JTextField nick,nick1,message,IP;
+    private JPanel p_login,p_chat,p_connect, p_info;
+    private JTextField nick,nick1,message,tf_ip;
     private JTextArea msg,online;
     private Socket client;
     private ThreadClient dataStream;
@@ -113,29 +113,29 @@ public class Client extends JFrame implements ActionListener{
         p_connect = new JPanel();
         p_connect.setLayout(new FlowLayout(FlowLayout.CENTER));
         p_connect.add(new JLabel("IP Sever : "));
-        IP = new JTextField(20);
-        p_connect.add(IP);
+        tf_ip = new JTextField(20);
+        p_connect.add(tf_ip);
         Connect = new JButton("Connect");
         Connect.addActionListener(this);
         p_connect.add(Connect);
         add(p_connect,BorderLayout.LINE_START);
         //---------------
-        Info = new JPanel();
-        Info.setLayout(new FlowLayout(FlowLayout.CENTER));
-        JTextArea T_info = new JTextArea();
+        p_info = new JPanel();
+        p_info.setLayout(new FlowLayout(FlowLayout.CENTER));
+        JTextArea t_info = new JTextArea();
         String a = "Demo Chat Client - Server";
-        T_info.setText(a);
-        Info.add(T_info);
-        Info.setVisible(false);
-        add(Info, BorderLayout.CENTER);
+        t_info.setText(a);
+        p_info.add(t_info);
+        p_info.setVisible(false);
+        add(p_info, BorderLayout.CENTER);
 
     }
 
     //Using socket and connect
-    private void go(String IP) {
+    private void go(String tf_ip) {
         try {
 
-            client = new Socket(IP,2207);
+            client = new Socket(tf_ip,2207);
             dos=new DataOutputStream(client.getOutputStream());
             dis=new DataInputStream(client.getInputStream());
 
@@ -242,7 +242,7 @@ public class Client extends JFrame implements ActionListener{
             if(checkLogin(nick1.getText())){
                 p_chat.setVisible(true);
                 p_login.setVisible(false);
-                Info.setVisible(false);
+                p_info.setVisible(false);
                 nick.setText(nick1.getText());
                 nick.setEditable(false);
                 this.setTitle(nick1.getText());
@@ -254,9 +254,9 @@ public class Client extends JFrame implements ActionListener{
 
         }
         else if(e.getSource() == Connect){
-            go(IP.getText());
+            go(tf_ip.getText());
             p_login.setVisible(true);
-            Info.setVisible(true);
+            p_info.setVisible(true);
             p_connect.setVisible(false);
         }
         else if(e.getSource()==logout){
