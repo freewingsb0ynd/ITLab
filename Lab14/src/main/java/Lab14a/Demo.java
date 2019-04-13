@@ -29,15 +29,21 @@ public class Demo {
         }
         return conn;
     }
-
-    public static void main(String args[]) {
-        //INITIALIZED in DATABASE
+    //INITIALIZED in DATABASE
+//    CREATE TABLE student (
+//
+//        id   INT              NOT NULL,
+//        name VARCHAR (32)     NOT NULL,
+//        address  VARCHAR (32) NOT NULL,
+//        PRIMARY KEY (id)
+//        AUTO INCREMENT (id)
+//    );
 //        1  Cong  Hanoi
 //        2  Phuong  Vinhphuc
 //        3  Hung  Danang
 //        4  Nam  Hanoi
 
-
+    public static void main(String args[]) {
         //test to add new students from a list
         List<Student> newStudentList = new ArrayList<Student>();
         newStudentList.add(new Student("Duong", "Haiphong"));
@@ -73,7 +79,7 @@ public class Demo {
             System.out.println("-----Test Stored Procedure-----");
             String sql = "CALL getStudentByLargerId(?);";
             CallableStatement cs = conn.prepareCall(sql);
-            cs.setInt(1, 7);            //get all students with id >7
+            cs.setInt(1, 6);            //get all students with id > 6
             cs.executeQuery();
             showOutputTable(cs.getResultSet());
 
