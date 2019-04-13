@@ -1,33 +1,37 @@
 package Lab14b;
 
+import Lab14a.Student;
+
 import java.sql.*;
 import java.util.*;
 
 public class Demo {
-    private static String DB_URL = "jdbc:mysql://localhost:3306/studentInfo";
-    private static String USER_NAME = "root";
-    private static String PASSWORD = "hoang@@@123";
+    public static String DB_URL = "jdbc:mysql://localhost:3306/studentInfo";
+    public static String USER_NAME = "root";
+    public static String PASSWORD = "hoang@@@123";
 
-    /**
-     * create connection
-     * @param dbURL: database's url
-     * @param userName: username is used to login
-     * @param password: password is used to login
-     * @return connection
-     */
-    
-    public static Connection getConnection(String dbURL, String userName,
-                                           String password) {
-        Connection conn = null;
+    static ConnectionPool connectionPool = new ConnectionPool();
+
+    public static void main(String args[]) {
+        for (int i = 0; i<10; i++){
+
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(dbURL, userName, password);
-            System.out.println("connect successfully!");
+            ThreadDbQuery thread = new ThreadDbQuery(i);
+            thread.start();
+
         } catch (Exception ex) {
-            System.out.println("connect failure!");
             ex.printStackTrace();
         }
-        return conn;
+
+        }
     }
 
+    public static ResultSet selectStudentById(Connection conn, int id) throws SQLException {
+        String sql = "select * from student where id = ?;";
+        CallableStatement callableStmt = conn.prepareCall(sql);
+
+        callableStmt.setInt(1, id);
+        callableStmt.execute();
+        return callableStmt.getResultSet();
+    }
 }
