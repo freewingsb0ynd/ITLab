@@ -32,7 +32,7 @@ public class ThreadDbQuery extends Thread{
             this.executedTime = new Date().getTime() - startTime;
             showOutput(resultSet, executedTime);
 
-            
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (SQLException e) {
