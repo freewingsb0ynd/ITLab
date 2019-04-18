@@ -13,13 +13,12 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 @Service
-@Primary
 @Scope("singleton")
 public class FileConverter implements StandardlizeService {
     public final String FOLDER_IN = "E:\\Programming\\Projects Java\\ITLab\\Lab15b\\src\\main\\java\\";
 
     @Override
-    public LinkedList convertInputToList() {
+    public void convertInputToList() {
         LinkedList<String> input = new LinkedList<>();
         try {
             FileReader fileReader = new FileReader(FOLDER_IN + "input.txt");
@@ -34,7 +33,6 @@ public class FileConverter implements StandardlizeService {
             e.printStackTrace();
         }
 
-        return input;
     }
 
 

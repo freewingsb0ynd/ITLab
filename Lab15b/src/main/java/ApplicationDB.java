@@ -1,22 +1,19 @@
-package service;
-
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.StandardlizeService;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 
+@Slf4j
+@SpringBootApplication
+public class ApplicationDB{
+    @Autowired
+    StandardlizeService inputConverter;
 
-@Service
-@Primary
-@Scope("singleton")
-public class DatabaseConverter implements StandardlizeService {
     private static String DB_URL = "jdbc:mysql://localhost:3306/studentInfo";
     private static String USER_NAME = "root";
     private static String PASSWORD = "hoang@@@123";
@@ -35,7 +32,7 @@ public class DatabaseConverter implements StandardlizeService {
         return conn;
     }
 
-    public void databaseConvert() {
+    public static void databaseConvert() {
         try {
             // connnect to database 'studentInfo'
             Connection conn = getConnection(DB_URL, USER_NAME, PASSWORD);
@@ -47,9 +44,9 @@ public class DatabaseConverter implements StandardlizeService {
 
                 stringBuilder.append(String.format("%s\n", rs.getString(2)));
             }
-            writeFile("./inputDB.txt", stringBuilder);
+            writeFile("./src/main/java/inputDB.txt", stringBuilder);
 
-            showOutputTable(selectAllStudents(conn));
+            //showOutputTable(selectAllStudents(conn));
             // close connection
             conn.close();
         } catch (Exception ex) {
@@ -57,7 +54,7 @@ public class DatabaseConverter implements StandardlizeService {
         }
     }
 
-//
+    //
 //    }
 //
     public static void writeFile(String fileName, CharSequence csq) {
@@ -71,6 +68,13 @@ public class DatabaseConverter implements StandardlizeService {
         }
     }
 
+    public static void main(String[] args)  throws InterruptedException{
+        databaseConvert();
+
+        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/config.xml")){
+            Thread.sleep(3000);
+        }
+    }
     public static ResultSet selectAllStudents(Connection conn) throws SQLException {
         Statement stmt = conn.createStatement();
         // get data from table 'student'
@@ -85,15 +89,4 @@ public class DatabaseConverter implements StandardlizeService {
                     + "  " + rs.getString(3));
         }
     }
-
-
-    @Override
-    public void convertInputToList() {
-        databaseConvert();
-    }
-
-//    @Override
-//    public void outputFile(LinkedList linkedList) {
-//
-//    }
 }
