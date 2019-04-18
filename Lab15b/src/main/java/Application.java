@@ -19,14 +19,10 @@ public class Application{
 
     public final String FOLDER_OUT = "E:\\Programming\\Projects Java\\ITLab\\Lab15b\\src\\main\\java\\";
 
-    public static void main(String[] args){
-        try {
-            ApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/config.xml");
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public static void main(String[] args) throws InterruptedException{
+        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/config.xml")){
+            Thread.sleep(3000);
         }
-    }
 
 //    @Override
 //    public void run(String... args) throws Exception {
@@ -55,4 +51,5 @@ public class Application{
 //            e.printStackTrace();
 //        }
 //    }
+    }
 }
