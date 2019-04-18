@@ -17,7 +17,7 @@
 
     <file:inbound-channel-adapter id="fileIn"
                                   directory="file:E:\\Programming\\Projects Java\\ITLab\\Lab15b\\src\\main\\java"
-                                  filename-pattern="inputDB.txt"
+                                  filename-pattern="input.txt"
                                   auto-startup="true">
         <int:poller id="poller" fixed-delay="5000"/>
     </file:inbound-channel-adapter>
@@ -37,7 +37,7 @@
 
     <file:outbound-channel-adapter id="filesOut"
                                    directory="file:E:\\Programming\\Projects Java\\ITLab\\Lab15b\\src\\main\\java"
-                                   filename-generator-expression="'outputDB.txt'"
+                                   filename-generator-expression="'output.txt'"
                                    />
 
     <bean id="fileHandler" class="service.FileConverter"/>
