@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:file="http://www.springframework.org/schema/integration/file"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration.xsd
+			http://www.springframework.org/schema/integration/file
+			http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder/>
+
+    <file:inbound-channel-adapter id="fileIn"
+                                  directory="file:E:\\Programming\\Projects Java\\ITLab\\Lab15b\\src\\main\\java"
+                                  filename-pattern="input.txt"
+                                  auto-startup="true">
+        <int:poller id="poller" fixed-delay="5000"/>
+    </file:inbound-channel-adapter>
+
+
+    <file:file-to-string-transformer input-channel="fileIn" output-channel="strIn"/>
+
+    <int:service-activator input-channel="strIn"
+                                   output-channel="strRemovedUnicode"
+                                   ref="fileHandler"
+                                   method="removeUnicode"/>
+
+    <int:service-activator input-channel="strRemovedUnicode"
+                                   output-channel="filesOut"
+                                   ref="fileHandler"
+                                   method="capitalize"/>
+
+    <file:outbound-channel-adapter id="filesOut"
+                                   directory="file:E:\\Programming\\Projects Java\\ITLab\\Lab15b\\src\\main\\java"
+                                   filename-generator-expression="'output.txt'"
+                                   />
+
+    <bean id="fileHandler" class="service.FileConverter"/>
+
+</beans>

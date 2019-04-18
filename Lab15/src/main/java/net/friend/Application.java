@@ -23,5 +23,9 @@ public class Application implements CommandLineRunner{
 //      String res = ;
 
         mySum.sum("1", "eeee");
+        mySum.sum("1", "3");
+        mySum.sum("100", "1e8");
+        mySum.sum("-7.1", "100");
+        mySum.sum("-.5", ".6");
   }
 }

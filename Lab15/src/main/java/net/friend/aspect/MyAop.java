@@ -1,6 +1,7 @@
 package net.friend.aspect;
 
 import lombok.extern.slf4j.Slf4j;
+import net.friend.service.MySum;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ public class MyAop {
     public void beforeReturning(JoinPoint joinPoint) {
         String param1 = (String) joinPoint.getArgs()[0];
         String param2 = (String) joinPoint.getArgs()[1];
+
         try{
             double i1 = Double.parseDouble(param1);
             double i2 = Double.parseDouble(param2);
