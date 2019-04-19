@@ -1,8 +1,8 @@
-package com.topica.vn.lab16.service.impl;
+package com.topica.vn.jpaExample.service.impl;
 
-import com.topica.vn.lab16.model.Category;
-import com.topica.vn.lab16.repository.CategoryRepository;
-import com.topica.vn.lab16.service.CategoryService;
+import com.topica.vn.jpaExample.model.Category;
+import com.topica.vn.jpaExample.repository.CategoryRepository;
+import com.topica.vn.jpaExample.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

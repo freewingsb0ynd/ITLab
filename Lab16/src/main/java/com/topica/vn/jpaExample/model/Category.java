@@ -1,4 +1,4 @@
-package com.topica.vn.lab16.model;
+package com.topica.vn.jpaExample.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,8 +12,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "type")
-public class Type implements Serializable {
+@Table(name = "category")
+public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,11 @@ public class Type implements Serializable {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
-    private Set<Category> categories;
+    @ManyToOne
+    @JoinColumn
+    private Type type;
+
+    @ManyToMany(mappedBy = "categories")
+    private Set<Item> items;
 
 }

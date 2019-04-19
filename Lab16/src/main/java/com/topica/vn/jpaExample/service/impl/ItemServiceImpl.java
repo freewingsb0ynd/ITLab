@@ -1,8 +1,8 @@
-package com.topica.vn.lab16.service.impl;
+package com.topica.vn.jpaExample.service.impl;
 
-import com.topica.vn.lab16.model.Item;
-import com.topica.vn.lab16.repository.ItemRepository;
-import com.topica.vn.lab16.service.ItemService;
+import com.topica.vn.jpaExample.model.Item;
+import com.topica.vn.jpaExample.repository.ItemRepository;
+import com.topica.vn.jpaExample.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

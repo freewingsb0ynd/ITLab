@@ -1,6 +1,6 @@
-package com.topica.vn.lab16.repository;
+package com.topica.vn.jpaExample.repository;
 
-import com.topica.vn.lab16.model.Item;
+import com.topica.vn.jpaExample.model.Item;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

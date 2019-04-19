@@ -1,6 +1,6 @@
-package com.topica.vn.lab16.service;
+package com.topica.vn.jpaExample.service;
 
-import com.topica.vn.lab16.model.Category;
+import com.topica.vn.jpaExample.model.Category;
 
 import java.util.List;
 

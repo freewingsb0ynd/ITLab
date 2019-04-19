@@ -1,10 +1,10 @@
-package com.topica.vn.lab16;
+package com.topica.vn.jpaExample;
 
-import com.topica.vn.lab16.model.Category;
-import com.topica.vn.lab16.model.Item;
-import com.topica.vn.lab16.service.CategoryService;
-import com.topica.vn.lab16.service.ItemService;
-import com.topica.vn.lab16.service.TypeService;
+import com.topica.vn.jpaExample.model.Category;
+import com.topica.vn.jpaExample.model.Item;
+import com.topica.vn.jpaExample.service.CategoryService;
+import com.topica.vn.jpaExample.service.ItemService;
+import com.topica.vn.jpaExample.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -35,7 +35,7 @@ public class Application implements CommandLineRunner {
             System.out.println(category.getId() + ", " + category.getName());
         }
 
-        List<Item> items = itemService.findByCategory("Laptop", 0, 100);
+        List<Item> items = itemService.findByCategory("Phone", 0, 100);
         for (Item item : items) {
             System.out.println(item.getId() + ", " + item.getName());
         }
