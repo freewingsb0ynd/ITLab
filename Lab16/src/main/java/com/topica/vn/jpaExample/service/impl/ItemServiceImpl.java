@@ -1,5 +1,6 @@
 package com.topica.vn.jpaExample.service.impl;
 
+import com.topica.vn.jpaExample.model.Category;
 import com.topica.vn.jpaExample.model.Item;
 import com.topica.vn.jpaExample.repository.ItemRepository;
 import com.topica.vn.jpaExample.service.ItemService;
@@ -17,5 +18,9 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> findByCategory(String category, int pageIndex, int pageSize) {
         return itemRepository.findByCategory(category, new PageRequest(pageIndex, pageSize)).getContent();
+    }
+    @Override
+    public List<Category> findByType(String type, int pageIndex, int pageSize) {
+        return itemRepository.findByType(type, new PageRequest(pageIndex, pageSize)).getContent();
     }
 }

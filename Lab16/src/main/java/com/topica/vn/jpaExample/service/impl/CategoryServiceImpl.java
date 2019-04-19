@@ -14,10 +14,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Override
-    public List<Category> findByType(String type, int pageIndex, int pageSize) {
-        return categoryRepository.findByType(type, new PageRequest(pageIndex, pageSize)).getContent();
-    }
+
 
     @Override
     public void updateCategory(Long id, String name) {

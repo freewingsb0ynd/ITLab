@@ -12,8 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-    @Query("SELECT t.categories FROM Type t WHERE t.name = :typeName")
-    Page<Category> findByType(@Param("typeName") String type, Pageable pageable);
+
 
     @Transactional
     @Modifying

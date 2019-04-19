@@ -26,7 +26,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        List<Category> categories = categoryService.findByType("abc", 0, 100);
+        List<Category> categories = itemService.findByType("abc", 0, 100);
         for (Category category : categories) {
             System.out.println(category.getId() + ", " + category.getName());
         }
