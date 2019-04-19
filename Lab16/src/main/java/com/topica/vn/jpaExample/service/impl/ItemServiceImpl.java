@@ -2,7 +2,7 @@ package com.topica.vn.jpaExample.service.impl;
 
 import com.topica.vn.jpaExample.model.Category;
 import com.topica.vn.jpaExample.model.Item;
-import com.topica.vn.jpaExample.repository.ItemRepository;
+import com.topica.vn.jpaExample.repo.ItemRepository;
 import com.topica.vn.jpaExample.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

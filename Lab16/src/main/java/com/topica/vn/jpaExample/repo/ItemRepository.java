@@ -1,4 +1,4 @@
-package com.topica.vn.jpaExample.repository;
+package com.topica.vn.jpaExample.repo;
 
 import com.topica.vn.jpaExample.model.Category;
 import com.topica.vn.jpaExample.model.Item;
