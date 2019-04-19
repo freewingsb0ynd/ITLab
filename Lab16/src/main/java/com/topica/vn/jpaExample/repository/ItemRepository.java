@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long> {
-    @Query("select c.items from Category c where c.name = :category")
+    @Query("SELECT c.items FROM Category c WHERE c.name = :category")
     Page<Item> findByCategory(@Param("category") String category, Pageable pageable);
 }

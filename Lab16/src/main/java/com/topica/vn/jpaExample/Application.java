@@ -4,7 +4,6 @@ import com.topica.vn.jpaExample.model.Category;
 import com.topica.vn.jpaExample.model.Item;
 import com.topica.vn.jpaExample.service.CategoryService;
 import com.topica.vn.jpaExample.service.ItemService;
-import com.topica.vn.jpaExample.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,9 +13,6 @@ import java.util.List;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
-
-    @Autowired
-    private TypeService typeService;
 
     @Autowired
     private CategoryService categoryService;
@@ -30,7 +26,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        List<Category> categories = categoryService.findByType("Device", 0, 100);
+        List<Category> categories = categoryService.findByType("Apple", 0, 100);
         for (Category category : categories) {
             System.out.println(category.getId() + ", " + category.getName());
         }
@@ -40,6 +36,6 @@ public class Application implements CommandLineRunner {
             System.out.println(item.getId() + ", " + item.getName());
         }
 
-        categoryService.updateCategory(1L, "Phone");
+        categoryService.updateCategory(6L, "Lenovo");
     }
 }
