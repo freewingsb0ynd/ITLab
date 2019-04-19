@@ -8,5 +8,5 @@ import java.util.List;
 public interface ItemService {
     List<Item> findByCategory(String category, int pageIndex, int pageSize);
 
-    List<Category> findByType(String type, int pageIndex, int pageSize);
+
 }

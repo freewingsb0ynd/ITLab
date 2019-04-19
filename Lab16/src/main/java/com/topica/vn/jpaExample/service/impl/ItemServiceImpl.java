@@ -19,8 +19,5 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> findByCategory(String category, int pageIndex, int pageSize) {
         return itemRepository.findByCategory(category, new PageRequest(pageIndex, pageSize)).getContent();
     }
-    @Override
-    public List<Category> findByType(String type, int pageIndex, int pageSize) {
-        return itemRepository.findByType(type, new PageRequest(pageIndex, pageSize)).getContent();
-    }
+
 }
