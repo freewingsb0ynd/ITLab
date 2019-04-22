@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
 public interface ItemRepository extends JpaRepository<Item, Long> {
     @Query(value = "SELECT * FROM item i JOIN item_category ic ON i.id = ic.item_id JOIN category c ON c.id = ic.category_id WHERE c.name = :category", nativeQuery = true)
     Page<Item> findByCategory(@Param("category") String category, Pageable pageable);
-    
+
 }

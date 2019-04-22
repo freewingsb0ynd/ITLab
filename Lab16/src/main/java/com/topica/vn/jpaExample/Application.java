@@ -27,7 +27,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        List<Item> items = itemService.findByCategory("Apple", 0, 100);
+        List<Item> items = itemService.findByCategory("Apple", 0, 20);
         for (Item item : items) {
             System.out.println(item.getId() + ", " + item.getName());
         }

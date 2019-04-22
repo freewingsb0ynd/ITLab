@@ -46,20 +46,19 @@ public class Demo {
         System.out.println("Min Weight of all bananas: " + minWeight);
 
         //Filter
-        List<Banana> bananasPriceLessThan30 = myList
+        List<Banana> bananasB2 = myList
                 .stream()
                 .filter(banana -> banana.isType("B2"))
                 .collect(Collectors.toList());
 
         System.out.println("Filter: Bananas B2");
-        bananasPriceLessThan30.forEach(e -> {
+        bananasB2.forEach(e -> {
             System.out.println(e.toString());
         });
 
         //Map
-//        long mapBananaB1 = myList.parallelStream()
-//                .map(banana -> banana.isB1()).count();
-////                .collect(Collectors.toList());
+//        Map<Banana, Integer> mapBananaB1 = myList.parallelStream()
+//                .map(banana -> banana.getPrice());
 //        System.out.println(mapBananaB1);
 
 //        //Reduce
