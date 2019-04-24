@@ -27,12 +27,12 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        List<Item> items = itemService.findByCategory("Apple", 0, 20);
+        List<Item> items = itemService.findByCategory("Apple", 0, 4);
         for (Item item : items) {
             System.out.println(item.getId() + ", " + item.getName());
         }
 
-        List<Category> categories = categoryService.findByType("Phone", 0, 100);
+        List<Category> categories = categoryService.findByType("Phone", 1, 2);
         for (Category category : categories) {
             System.out.println(category.getId() + ", " + category.getName());
         }
