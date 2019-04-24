@@ -26,7 +26,6 @@ public class Category implements Serializable {
     private String name;
 
     @ManyToOne
-    @JoinColumn
     private Type type;
 
     @ManyToMany(mappedBy = "categories")
