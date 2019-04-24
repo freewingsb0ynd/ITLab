@@ -29,12 +29,12 @@ public class Application implements CommandLineRunner {
 
         List<Item> items = itemService.findByCategory("Apple", 0, 4);
         for (Item item : items) {
-            System.out.println(item.getId() + ", " + item.getName());
+            System.out.println(item.getId() + "/" + item.getName());
         }
 
         List<Category> categories = categoryService.findByType("Phone", 1, 2);
         for (Category category : categories) {
-            System.out.println(category.getId() + ", " + category.getName());
+            System.out.println(category.getId() + "/" + category.getName());
         }
 
 
