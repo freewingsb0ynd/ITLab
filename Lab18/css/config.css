@@ -1,0 +1,58 @@
+.navBnt {
+	background-color:blue;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:none;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-align: center;
+  	text-decoration: none;
+	width: 150px;
+	height: 50px;
+}
+
+h1.body{
+	color: white;
+}
+
+p.body{
+	color: white;
+}
+
+.bodyBntLeft {
+	background-color:white;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border: none;
+	cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-align: center;
+  	text-decoration: none;
+	width: 200px;
+	height: 50px;
+}
+
+.bodyBntRight {
+	background-color:blue;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border: 2px solid white;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-align: center;
+  	text-decoration: none;
+	width: 200px;
+	height: 50px;
+}
