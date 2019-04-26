@@ -80,7 +80,7 @@ public class DefaultController {
             model.addAttribute("listword", dictionaryService.findByWord(word.getWord(),0,10));
             System.out.println(dictionaryService.findByWord(word.getWord(),0,10));
         }
-        return "home";
+        return "index";
     }
 
 }

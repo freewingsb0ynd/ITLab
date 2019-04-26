@@ -14,7 +14,7 @@ public interface WordRepository extends JpaRepository<Word, Long> {
     @Query(value = "SELECT * FROM word WHERE word LIKE CONCAT((:inputWord), '%')", nativeQuery = true)
     Page<Word> findByWord(@Param("inputWord") String type, Pageable pageable);
 
-    @Query(value = "SELECT * FROM dictionary WHERE word = :word limit 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM dictionary WHERE word = ?1 limit 1", nativeQuery = true)
     Word findByWord(String word);
 
     @Modifying

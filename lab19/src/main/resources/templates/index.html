@@ -1,33 +1,4 @@
-<!--<!DOCTYPE HTML>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <title>Spring Boot Thymeleaf + Spring Security</title>-->
-
-<!--    <div th:replace="fragments/header :: header-css"/>-->
-
-<!--</head>-->
-<!--<body>-->
-
-<!--<div th:replace="fragments/header :: header"/>-->
-
-<!--<div class="container">-->
-
-<!--    <div class="starter-template">-->
-<!--        <h1>Spring Boot Web Thymeleaf + Spring Security</h1>-->
-<!--        <h2>1. Visit <a th:href="@{/admin}">Admin page (Spring Security protected, Need Admin Role)</a></h2>-->
-<!--        <h2>2. Visit <a th:href="@{/user}">User page (Spring Security protected, Need User Role)</a></h2>-->
-<!--        <h2>3. Visit <a th:href="@{/about}">Normal page</a></h2>-->
-<!--    </div>-->
-
-<!--</div>-->
-<!--&lt;!&ndash; /.container &ndash;&gt;-->
-
-<!--<div th:replace="fragments/footer :: footer"/>-->
-
-<!--</body>-->
-<!--</html>-->
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -37,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
@@ -92,22 +63,23 @@
 
 <script>
     $(document).ready(
+        function () {
+            $("#search").keyup(function (event) {
+                var word = $("#search").val();
+                console.log(word)
+                word = word.trim();
+                getWordMean(word);
+                getSuggestions(word);
+            })
+        }
         // function () {
-        //     $("#search").keyup(function (event) {
+        //     $("#submit").onclick(function (event) {
         //         var word = $("#search").val();
         //         word = word.trim();
         //         getWordMean(word);
         //         getSuggestions(word);
         //     })
         // }
-        function () {
-            $("#submit").onclick(function (event) {
-                var word = $("#search").val();
-                word = word.trim();
-                getWordMean(word);
-                getSuggestions(word);
-            })
-        }
     )
 
     function getWordMean(word) {
@@ -128,10 +100,6 @@
                     }
                 }
             },
-            // error : function(e) {
-            //     alert("Error!")
-            //     console.log("ERROR: ", e);
-            // }
         });
     }
 
@@ -145,8 +113,6 @@
             },
             dataType : 'json',
             success : function(result) {
-                // console.log(result)
-                // console.log(result.data.mean)
                 if (result.status == "success") {
                     $("#word").empty();
                     for(var i = 0; i< result.data.length; i++){
@@ -154,10 +120,6 @@
                     }
                 }
             },
-            // error : function(e) {
-            //     alert("Error!")
-            //     console.log("ERROR: ", e);
-            // }
         });
     }
 </script>
