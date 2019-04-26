@@ -25,9 +25,9 @@ public class ReadFileService {
                 if(tokens.length == 2){
 //                    w.setType(typeDict);
 
-                    w.setWord(tokens[0]);
+                    w.setWord(tokens[0].trim());
                     try {
-                        w.setMeaning(tokens[1]);
+                        w.setMeaning(tokens[1].trim());
                     } catch (ArrayIndexOutOfBoundsException e ) {
                         w.setMeaning("");
                     }
