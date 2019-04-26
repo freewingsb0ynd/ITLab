@@ -28,7 +28,7 @@ public class Lab19Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //Import external file
-//        readFileService.importFromFile("E:\\Programming\\Projects Java\\ITLab\\lab19\\src\\main\\java\\com\\topica\\vn\\lab19\\test.txt");
+//        readFileService.importFromFile("E:\\Programming\\Projects Java\\ITLab\\lab19\\src\\main\\java\\com\\topica\\vn\\lab19\\vnedict.txt");
         List<Word> words = service.findByWord("A", 0, 5);
         for (Word w : words){
             System.out.println(w.getMeaning());
