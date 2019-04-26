@@ -33,5 +33,8 @@ public class Lab19Application implements CommandLineRunner {
         for (Word w : words){
             System.out.println(w.getMeaning());
         }
+
+        Word wA = service.findByWord("A La Hán");
+        System.out.println(wA.getMeaning());
     }
 }
