@@ -49,7 +49,7 @@ public class EquationSolveTest {
     public void bAndCBothEqual0Test(){
         double expectedRoot = 0.0;
         EquationSolve solve = new EquationSolve();
-        assertEquals(expectedRoot, Math.abs(solve.roots(1.6735,0.0, 0.0)[0]), 0.00001);
+        assertEquals(expectedRoot, Math.abs(solve.roots(1.6735,0.0, 0.0)[0]), Math.pow(10.0, -26));
     }
 
     @Test
@@ -73,14 +73,14 @@ public class EquationSolveTest {
     }
 
     @Test
-    public void bEquals0Test(){
+    public void onlyBEquals0Test(){
         Double expectedRoots[] = new Double[]{-3.0, 3.0};
         EquationSolve solve = new EquationSolve();
         assertArrayEquals(expectedRoots, solve.roots(2.0,0.0, -18.0));
     }
 
     @Test
-    public void cEquals0Test(){
+    public void onlyCEquals0Test(){
         Double expectedRoots[] = new Double[]{-3.0, 0.0};
         EquationSolve solve = new EquationSolve();
         assertArrayEquals(expectedRoots, solve.roots(2.0,6.0, 0.0));

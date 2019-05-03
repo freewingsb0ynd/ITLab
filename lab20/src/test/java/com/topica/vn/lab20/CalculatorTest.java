@@ -19,6 +19,12 @@ public class CalculatorTest {
     }
 
     @Test
+    public void aAndBBothEqual0Test(){
+        Calculate cal = new Calculate();
+        assertNull(cal.devide(0.0,0.0));
+    }
+
+    @Test
     public void devideNegativeTest(){
         Double expectedResult = -2.0;
         Calculate cal = new Calculate();
@@ -38,6 +44,5 @@ public class CalculatorTest {
         Calculate cal = new Calculate();
         assertEquals(expectedResult, new Double(Math.abs(cal.devide(0.0,-1.98884))));
     }
-
 
 }
