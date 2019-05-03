@@ -36,7 +36,7 @@ public class CalculatorTest {
     public void result0Test(){
         Double expectedResult = 0.0;
         Calculate cal = new Calculate();
-        assertEquals(expectedResult, new Double(Math.abs(cal.devide(0.0,-6.0))));
+        assertEquals(expectedResult, new Double(Math.abs(cal.devide(0.0,-1.98884))));
     }
 
 

@@ -42,28 +42,27 @@ public class EquationSolveTest {
     public void aAndBBothEqual0Test(){
         Double expectedRoot[] = new Double[0];
         EquationSolve solve = new EquationSolve();
-        assertArrayEquals(expectedRoot, solve.roots(0.0,0.0, -2.0));
+        assertArrayEquals(expectedRoot, solve.roots(0.0,0.0, -2.66661));
     }
 
     @Test
     public void bAndCBothEqual0Test(){
         double expectedRoot = 0.0;
         EquationSolve solve = new EquationSolve();
-        assertEquals(expectedRoot, Math.abs(solve.roots(5.0,0.0, 0.0)[0]), 0.00001);
+        assertEquals(expectedRoot, Math.abs(solve.roots(1.6735,0.0, 0.0)[0]), 0.00001);
     }
 
     @Test
     public void aAndCBothEqual0Test(){
         Double expectedRoot = 0.0;
         EquationSolve solve = new EquationSolve();
-        assertEquals(expectedRoot, new Double(Math.abs(solve.roots(0.0,37.0, 0.0)[0])));
+        assertEquals(expectedRoot, new Double(Math.abs(solve.roots(0.0,37.56871, 0.0)[0])));
     }
 
     @Test
     public void countlessRootsTest(){
-        Double expectedRoot[] = new Double[0];
         EquationSolve solve = new EquationSolve();
-        assertArrayEquals(expectedRoot, solve.roots(0.0,0.0, -2.0));
+        assertNull(solve.roots(0.0,0.0, 0.0));
     }
 
     @Test
