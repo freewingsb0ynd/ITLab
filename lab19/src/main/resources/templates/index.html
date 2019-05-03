@@ -68,8 +68,13 @@
                 var word = $("#search").val();
                 console.log(word)
                 word = word.trim();
-                getWordMean(word);
+                // getWordMean(word);
                 getSuggestions(word);
+            })
+            $("#submit").click(function (event) {
+                var word = $("#search").val();
+                word = word.trim();
+                getWordMean(word);
             })
         }
         // function () {
